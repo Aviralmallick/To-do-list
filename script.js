@@ -12,6 +12,7 @@ const renderTasks = () =>
         const btn = document.createElement('button');
         btn.innerHTML='<div>Delete</div>';
         btn.className='delete-button';
+        btn.onclick = () => deleteTask(index);
 
         li.appendChild(btn)
         taskList.appendChild(li);
@@ -32,4 +33,19 @@ const addTask = () =>{
         renderTasks();
         
     }
+}
+
+const deleteTask = (index)=>{
+    tasks.splice(index ,1);
+    renderTasks();
+
+}
+
+const clearAllTasks = ()=>{
+    tasks = [];
+    renderTasks();
+}
+
+const countTasks = ()=>{
+    alert("Total Number of tasks is :"+tasks.length)
 }
